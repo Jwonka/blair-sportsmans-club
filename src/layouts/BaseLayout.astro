@@ -1,16 +1,16 @@
----``
+---
 type Props = {
   title?: string;
   description?: string;
-  canonicalPath?: string; // e.g. "/events"
-  ogImage?: string;       // e.g. "/og/facebook_og-image_horizontal.jpg"
+  canonicalPath?: string;
+  ogImage?: string;
 };
 
 const {
-  title = "Blair Sportsmen’s Club",
-  description = "Blair Sportsmen’s Club — events, leagues, memberships, and The Barn event center.",
+  title = "Blair Sportsmen's Club",
+  description = "Blair Sportsmen's Club — events, leagues, memberships, and The Barn event center.",
   canonicalPath = "/",
-  ogImage = "/images/hero-main.jpg",
+  ogImage = "/og/facebook-og-image-horizontal.jpg",
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
@@ -29,9 +29,9 @@ const nav = [
 const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "SportsOrganization",
-  name: "Blair Sportsmen’s Club",
+  name: "Blair Sportsmen's Club",
   url: site || undefined,
-  logo: site ? `${site}/images/hero-main.jpg` : "/images/hero-main.jpg",
+  logo: site ? `${site}/images/BSC_Logo_FC_v2.jpg` : "/images/BSC_Logo_FC_v2.jpg",
 };
 ---
 
@@ -42,7 +42,6 @@ const orgJsonLd = {
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-
     <title>{title}</title>
 
     <meta property="og:type" content="website" />
@@ -50,10 +49,9 @@ const orgJsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={site ? `${site}${ogImage}` : ogImage} />
-
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#2C583D" />
 
+    <meta name="theme-color" content="#263345" />
     <script type="application/ld+json">{JSON.stringify(orgJsonLd)}</script>
   </head>
 
@@ -61,13 +59,11 @@ const orgJsonLd = {
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <header class="site-header">
-      <div class="wrap header-inner">
-        <a class="brand" href="/" aria-label="Blair Sportsmen’s Club home">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Blair Sportsmen's Club home">
           <img
-            src="/images/BSC_Logo_FC_v2.jpg"
-            width="180"
-            height="56"
-            alt="Blair Sportsmen’s Club"
+            src="/images/logoIcon.jpg"
+            alt="Blair Sportsmen's Club"
             loading="eager"
             decoding="async"
           />
@@ -90,8 +86,8 @@ const orgJsonLd = {
     </main>
 
     <footer class="site-footer">
-      <div class="wrap footer-inner">
-        <p class="fineprint">© {year} Blair Sportsmen’s Club. All rights reserved.</p>
+      <div class="container footer-inner">
+        <p class="fineprint">© {year} Blair Sportsmen's Club. All rights reserved.</p>
         <p class="fineprint">
           <a href="/contact">Contact</a>
           <span aria-hidden="true"> · </span>
@@ -136,13 +132,19 @@ const orgJsonLd = {
       }
 
       a{color:inherit}
-      a:focus-visible, button:focus-visible{
+      a:focus-visible{
         outline:3px solid var(--focus);
         outline-offset:3px;
         border-radius:10px;
       }
 
-      .wrap{max-width:var(--max); margin:0 auto; padding:0 16px}
+      .container{
+        max-width:var(--max);
+        margin:0 auto;
+        padding-left:40px;
+        padding-right:40px;
+      }
+
       .skip-link{
         position:absolute; left:12px; top:12px;
         padding:10px 12px;
@@ -150,44 +152,144 @@ const orgJsonLd = {
         border:1px solid var(--border);
         border-radius:10px;
         transform:translateY(-200%);
+        z-index:999;
       }
       .skip-link:focus{transform:translateY(0)}
 
       .site-header{
         position:sticky; top:0; z-index:20;
-        background:rgba(255,255,255,.92);
-        backdrop-filter:saturate(160%) blur(10px);
-        border-bottom:1px solid var(--border);
+        background:#263345;
+        border-bottom:1px solid rgba(255,255,255,.14);
       }
       .header-inner{
-        display:flex; align-items:center; justify-content:space-between;
-        padding:10px 0;
-        gap:16px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding-top:16px;
+        padding-bottom:16px;
+        gap:20px;
       }
-      .brand{display:inline-flex; align-items:center; text-decoration:none}
-      .brand img{display:block; height:auto}
+      .brand{
+        display:inline-flex;
+        align-items:center;
+        text-decoration:none;
+        flex-shrink:0;
+        transition:opacity 0.2s ease;
+      }
+      .brand:hover{
+        opacity:0.85;
+      }
+      .brand img{
+        display:block;
+        height:100px;
+        width:auto;
+      }
 
       .nav-list{
-        display:flex; flex-wrap:wrap; gap:10px;
-        list-style:none; margin:0; padding:0;
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        list-style:none;
+        margin:0;
+        padding:0;
       }
       .nav-link{
         display:inline-block;
-        padding:10px 12px;
+        padding:10px 14px;
         text-decoration:none;
-        border-radius:12px;
+        border-radius:10px;
+        color:#fff;
+        font-size:1.18rem;
+        transition:background 0.2s ease, transform 0.2s ease;
       }
-      .nav-link:hover{background:rgba(44,88,61,.08)}
-      .site-main{min-height:60vh}
+      .nav-link:hover{
+        background:rgba(255,255,255,.12);
+        transform:translateY(-1px);
+      }
+
+      .site-main{
+        min-height:60vh;
+        padding-top:52px;
+        padding-left:18px;
+        padding-right:18px;
+      }
 
       .site-footer{
-        margin-top:48px;
-        background:var(--text);
-        color:var(--bg);
+        margin-top:60px;
+        background:#263345;
+        color:#fff;
       }
-      .footer-inner{padding:28px 0}
-      .fineprint{margin:6px 0; color:rgba(255,255,255,.86)}
-      .fineprint a{color:inherit}
+      .footer-inner{
+        padding:32px 0;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:8px;
+      }
+      .fineprint{
+        margin:0;
+        color:rgba(255,255,255,.88);
+        font-size:0.9rem;
+      }
+      .fineprint a{
+        color:inherit;
+        transition:color 0.2s ease;
+      }
+      .fineprint a:hover{
+        color:#84A5CC;
+      }
+
+      @media (max-width: 768px){
+        .container{
+          padding-left:28px;
+          padding-right:28px;
+        }
+        .header-inner{
+          padding-top:14px;
+          padding-bottom:14px;
+        }
+        .nav-list{
+          gap:6px;
+        }
+        .nav-link{
+          padding:8px 10px;
+          font-size:1.05rem;
+        }
+        .brand img{
+          height:68px;
+        }
+        .site-main{
+          padding-top:42px;
+          padding-left:10px;
+          padding-right:10px;
+        }
+      }
+
+      @media (max-width: 480px){
+        .container{
+          padding-left:20px;
+          padding-right:20px;
+        }
+        .header-inner{
+          flex-direction:column;
+          align-items:flex-start;
+          padding-top:12px;
+          padding-bottom:12px;
+        }
+        .nav-list{
+          width:100%;
+          justify-content:flex-start;
+        }
+        .brand img{
+          height:60px;
+        }
+        .site-main{
+          padding-top:34px;
+          padding-left:10px;
+          padding-right:10px;
+        }
+      }
     </style>
   </body>
 </html>

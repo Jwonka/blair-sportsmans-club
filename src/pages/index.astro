@@ -1,119 +1,147 @@
 ---
+// src/pages/index.astro
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Blair Sportsmen’s Club | Events, Leagues, Memberships, and The Barn";
+const title = "Blair Sportsmen's Club | Events, Leagues, Memberships, and The Barn";
 const description =
-  "Blair Sportsmen’s Club in Blair, WI — shooting sports, hunting, waterfowl, leagues, memberships, and The Barn event center.";
+  "Blair Sportsmen's Club in Blair, WI — shooting sports, hunting, waterfowl, leagues, memberships, and The Barn event center.";
 ---
 
-<BaseLayout title={title} description={description} canonicalPath="/" ogImage="/og/facebook_og-image_horizontal.jpg">
+<BaseLayout title={title} description={description} canonicalPath="/" ogImage="/og/facebook-og-image-horizontal.jpg">
   <section class="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      <div class="hero-main">
-        <img
-          src="/images/hero-main.jpg"
-          width="1400"
-          height="900"
-          alt="Blair Sportsmen’s Club grounds and facilities"
-          loading="eager"
-          decoding="async"
-        />
-        <div class="hero-overlay">
-          <h1 id="hero-title">Blair Sportsmen’s Club</h1>
-          <p class="lead">
-            Events, leagues, memberships, and The Barn event center — built for outdoorsmen, shooters, and the community.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="/memberships">Join / Memberships</a>
-            <a class="btn ghost" href="/events">View Events</a>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <img
+            src="/images/hero.jpg"
+            width="1400"
+            height="900"
+            alt="Blair Sportsmen's Club grounds and facilities"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="hero-overlay">
+            <h1 id="hero-title">Blair Sportsmen's Club</h1>
+            <p class="lead">
+              Events, leagues, memberships, and The Barn event center — built for outdoorsmen, shooters, and the community.
+            </p>
+            <div class="cta-row">
+              <a class="btn primary" href="/memberships">Join / Memberships</a>
+              <a class="btn ghost" href="/events">View Events</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="hero-tiles" aria-label="Featured sections">
-        <a class="tile" href="/events">
-          <img src="/images/tile-1.jpg" width="700" height="520" alt="Upcoming club events" loading="lazy" decoding="async" />
-          <span class="tile-label">Events</span>
-        </a>
-        <a class="tile" href="/leagues">
-          <img src="/images/tile-2.jpg" width="700" height="520" alt="Trap and shooting leagues" loading="lazy" decoding="async" />
-          <span class="tile-label">Leagues</span>
-        </a>
-        <a class="tile" href="/memberships">
-          <img src="/images/tile-3.jpg" width="700" height="520" alt="Club memberships" loading="lazy" decoding="async" />
-          <span class="tile-label">Memberships</span>
-        </a>
-        <a class="tile" href="/event-center">
-          <img src="/images/tile-4.jpg" width="700" height="520" alt="The Barn event center" loading="lazy" decoding="async" />
-          <span class="tile-label">Event Center</span>
-        </a>
+        <div class="hero-tiles" aria-label="Featured sections">
+          <a class="tile tile--events" href="/events">
+            <img class="tile-img" src="/images/events.jpg" width="700" height="520" alt="Ice fishing event" loading="lazy" decoding="async" />
+            <span class="tile-label">Events</span>
+          </a>
+
+          <a class="tile tile--leagues" href="/leagues">
+            <img class="tile-img" src="/images/leagues.jpg" width="700" height="520" alt="Trap shooting league" loading="lazy" decoding="async" />
+            <span class="tile-label">Leagues</span>
+          </a>
+
+          <a class="tile tile--memberships" href="/memberships">
+            <img class="tile-img" src="/images/memberships.jpg" width="700" height="520" alt="Membership QR code" loading="lazy" decoding="async" />
+            <span class="tile-label">Memberships</span>
+          </a>
+
+          <a class="tile tile--eventcenter" href="/event-center">
+            <img class="tile-img" src="/images/event_center_barn.jpg" width="700" height="520" alt="The Barn event center" loading="lazy" decoding="async" />
+            <span class="tile-label">Event Center</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="categories" aria-labelledby="categories-title">
-    <div class="wrap">
+    <div class="container">
       <h2 id="categories-title">Explore the Club</h2>
 
       <div class="card-grid">
-        <article class="card">
-          <div class="card-head">
-            <span class="icon" aria-hidden="true">🦆</span>
-            <h3>Waterfowl</h3>
+        <article class="card card--waterfowl">
+          <div class="card-bg"></div>
+          <div class="card-content">
+            <div class="card-head">
+              <h3>Waterfowl</h3>
+            </div>
+            <p>Seasonal information, access details, and club highlights for duck and waterfowl activities.</p>
+            <a class="card-link" href="/waterfowl">Learn more<span class="sr-only"> about Waterfowl</span></a>
           </div>
-          <p>Seasonal information, access details, and club highlights for duck and waterfowl activities.</p>
-          <a class="card-link" href="/waterfowl">Learn more<span class="sr-only"> about Waterfowl</span></a>
         </article>
 
-        <article class="card">
-          <div class="card-head">
-            <span class="icon" aria-hidden="true">🎯</span>
-            <h3>Shooting Sports</h3>
+        <article class="card card--shooting">
+          <div class="card-bg"></div>
+          <div class="card-content">
+            <div class="card-head">
+              <h3>Shooting Sports</h3>
+            </div>
+            <p>Trap and related shooting sports, league nights, schedules, and participation details.</p>
+            <a class="card-link" href="/shooting-sports">Learn more<span class="sr-only"> about Shooting Sports</span></a>
           </div>
-          <p>Trap and related shooting sports, league nights, schedules, and participation details.</p>
-          <a class="card-link" href="/shooting-sports">Learn more<span class="sr-only"> about Shooting Sports</span></a>
         </article>
 
-        <article class="card">
-          <div class="card-head">
-            <span class="icon" aria-hidden="true">🦌</span>
-            <h3>Hunting</h3>
+        <article class="card card--hunting">
+          <div class="card-bg"></div>
+          <div class="card-content">
+            <div class="card-head">
+              <h3>Hunting</h3>
+            </div>
+            <p>Big game information and club resources focused on safety, etiquette, and community.</p>
+            <a class="card-link" href="/hunting">Learn more<span class="sr-only"> about Hunting</span></a>
           </div>
-          <p>Big game information and club resources focused on safety, etiquette, and community stewardship.</p>
-          <a class="card-link" href="/hunting">Learn more<span class="sr-only"> about Hunting</span></a>
         </article>
 
-        <article class="card">
-          <div class="card-head">
-            <span class="icon" aria-hidden="true">🏟️</span>
-            <h3>The Barn</h3>
+        <article class="card card--barn">
+          <div class="card-bg"></div>
+          <div class="card-content">
+            <div class="card-head">
+              <h3>The Barn</h3>
+            </div>
+            <p>Event center details, photos, rental information, and inquiry/booking workflow.</p>
+            <a class="card-link" href="/event-center">Learn more<span class="sr-only"> about The Barn</span></a>
           </div>
-          <p>Event center details, photos, rental information, and inquiry/booking workflow.</p>
-          <a class="card-link" href="/event-center">Learn more<span class="sr-only"> about The Barn</span></a>
         </article>
       </div>
     </div>
   </section>
 
   <section class="home-contact" aria-labelledby="home-contact-title">
-    <div class="wrap home-contact-inner">
-      <h2 id="home-contact-title">Questions or booking requests?</h2>
-      <p>Use the contact page for hours, directions, and the fastest way to reach the club.</p>
-      <a class="btn primary" href="/contact">Contact Us</a>
+    <div class="container">
+      <div class="home-contact-inner">
+        <h2 id="home-contact-title">Questions or booking requests?</h2>
+        <p>Use the contact page for hours, directions, and the fastest way to reach the club.</p>
+        <a class="btn primary" href="/contact">Contact Us</a>
+      </div>
     </div>
   </section>
 
   <style>
     .sr-only{
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
     }
 
-    .hero{padding:18px 0 0}
+    /* HERO */
+    .hero{
+      padding:0;
+      margin-bottom:56px;
+    }
+
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.45fr 1fr;
-      gap:14px;
+      grid-template-columns:1.5fr 1fr;
+      gap:16px;
       align-items:stretch;
     }
 
@@ -122,113 +150,393 @@ const description =
       border-radius:var(--radius);
       overflow:hidden;
       box-shadow:var(--shadow);
-      min-height:360px;
+      min-height:480px;
       background:var(--bg-alt);
     }
     .hero-main img{
       width:100%;
       height:100%;
       object-fit:cover;
+      object-position:center;
       display:block;
-      filter:saturate(105%);
+      transition:transform 0.5s ease;
+    }
+    .hero-main:hover img{
+      transform:scale(1.02);
     }
     .hero-overlay{
-      position:absolute; inset:0;
-      display:flex; flex-direction:column; justify-content:flex-end;
-      padding:22px;
-      background:linear-gradient(180deg, rgba(38,51,69,0) 25%, rgba(38,51,69,.72) 100%);
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(38,51,69,0) 30%, rgba(38,51,69,.76) 100%);
       color:#fff;
     }
-    .hero-overlay h1{margin:0 0 8px; font-size:clamp(1.8rem, 3vw, 2.6rem); line-height:1.1}
-    .lead{margin:0 0 14px; max-width:62ch; color:rgba(255,255,255,.9)}
-
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 14px;
-      border-radius:12px;
-      text-decoration:none;
-      border:1px solid rgba(255,255,255,.35);
-      font-weight:600;
+    .hero-overlay h1{
+      margin:0 0 10px;
+      font-size:clamp(2rem, 3.5vw, 2.8rem);
+      line-height:1.1;
+      font-weight:800;
     }
-    .btn.primary{background:var(--primary); border-color:transparent; color:#fff}
-    .btn.ghost{background:rgba(255,255,255,.12); color:#fff}
+    .lead{
+      margin:0 0 18px;
+      max-width:58ch;
+      color:rgba(255,255,255,.92);
+      font-size:clamp(1rem, 1.8vw, 1.15rem);
+      line-height:1.5;
+    }
 
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 20px;
+      border-radius:10px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.3);
+      font-weight:600;
+      font-size:1rem;
+      transition:all 0.25s ease;
+    }
+    .btn.primary{
+      background:var(--primary);
+      border-color:transparent;
+      color:#fff;
+    }
+    .btn.primary:hover{
+      background:#1f4029;
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(44,88,61,.4);
+    }
+    .btn.ghost{
+      background:rgba(255,255,255,.14);
+      color:#fff;
+    }
+    .btn.ghost:hover{
+      background:rgba(255,255,255,.28);
+      transform:translateY(-3px);
+      box-shadow:0 8px 20px rgba(0,0,0,.2);
+    }
+
+    /* HERO TILES - Stacked border effect */
     .hero-tiles{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:14px;
+      gap:16px;
     }
+
     .tile{
+      --frame:#9F9A75;
+      --frame2:#263345;
       position:relative;
       border-radius:var(--radius);
       overflow:hidden;
       box-shadow:var(--shadow);
-      background:var(--bg-alt);
       text-decoration:none;
-      min-height:160px;
+      min-height:230px;
+      background:linear-gradient(165deg, var(--frame), var(--frame2));
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .tile img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .tile::after{
-      content:"";
-      position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(38,51,69,0) 35%, rgba(38,51,69,.55) 100%);
-    }
-    .tile-label{
-      position:absolute; left:12px; bottom:10px;
-      z-index:1;
-      color:#fff;
-      font-weight:700;
-      letter-spacing:.2px;
+    .tile:hover{
+      transform:translateY(-5px);
+      box-shadow:0 20px 50px rgba(38,51,69,.25);
     }
 
-    .categories{padding:32px 0 0}
-    .categories h2{margin:0 0 14px; font-size:1.6rem}
+    /* Color-coded frames matching image tones */
+    .tile--events{
+      --frame:#8FA7B8;
+      --frame2:#415569;
+    }
+    .tile--leagues{
+      --frame:#B58D62;
+      --frame2:#5E4634;
+    }
+    .tile--memberships{
+      --frame:#E9ECEF;
+      --frame2:#8AA6B3;
+    }
+    .tile--eventcenter{
+      --frame:#A78158;
+      --frame2:#5A3F2B;
+    }
+
+    .tile-img{
+      position:absolute;
+      inset:14px;
+      width:calc(100% - 28px);
+      height:calc(100% - 28px);
+      object-fit:cover;
+      object-position:center;
+      display:block;
+      border-radius:calc(var(--radius) - 4px);
+      box-shadow:
+        0 0 0 4px rgba(255,255,255,.16),
+        0 12px 28px rgba(0,0,0,.24);
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .tile:hover .tile-img{
+      transform:scale(1.05);
+      box-shadow:
+        0 0 0 4px rgba(255,255,255,.24),
+        0 16px 36px rgba(0,0,0,.32);
+    }
+
+    .tile::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(38,51,69,0) 50%, rgba(38,51,69,.65) 100%);
+      pointer-events:none;
+      transition:background 0.3s ease;
+    }
+    .tile:hover::after{
+      background:linear-gradient(180deg, rgba(38,51,69,0) 40%, rgba(38,51,69,.75) 100%);
+    }
+
+    .tile-label{
+      position:absolute;
+      left:18px;
+      bottom:14px;
+      z-index:1;
+      color:#fff;
+      font-weight:800;
+      letter-spacing:0.3px;
+      font-size:1.05rem;
+      text-shadow:0 2px 8px rgba(0,0,0,.5);
+      transition:transform 0.3s ease;
+    }
+    .tile:hover .tile-label{
+      transform:translateX(4px);
+    }
+
+    /* CATEGORIES WITH BACKGROUND IMAGES */
+    .categories{
+      padding:24px 0 32px;
+    }
+    .categories h2{
+      margin:0 0 24px;
+      font-size:1.85rem;
+      font-weight:700;
+    }
+
     .card-grid{
       display:grid;
       grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:14px;
+      gap:16px;
     }
+
     .card{
+      display:flex;
+      flex-direction:column;
+      position:relative;
       border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:16px;
-      background:linear-gradient(180deg, rgba(159,154,117,.14), rgba(255,255,255,1));
-      box-shadow:0 10px 22px rgba(38,51,69,.06);
+      padding:0;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(38,51,69,.08);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      min-height:280px;
     }
-    .card-head{display:flex; align-items:center; gap:10px}
-    .icon{font-size:1.3rem}
-    .card h3{margin:0; font-size:1.1rem}
-    .card p{margin:10px 0 12px; color:var(--text-muted)}
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 40px rgba(38,51,69,.16);
+    }
+
+    /* Background images for each card */
+    .card-bg{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0.35;
+      transition:opacity 0.4s ease, transform 0.4s ease;
+    }
+    .card:hover .card-bg{
+      opacity:0.5;
+      transform:scale(1.05);
+    }
+
+    .card--waterfowl .card-bg{
+      background-image:url('/images/water_fowl1.jpg');
+    }
+    .card--shooting .card-bg{
+      background-image:url('/images/trap1.jpg');
+    }
+    .card--hunting .card-bg{
+      background-image:url('/images/buck1.jpg');
+    }
+    .card--barn .card-bg{
+      background-image:url('/images/barn1.jpg');
+    }
+
+    /* Content overlay */
+   .card-content{
+      position:relative;
+      z-index:1;
+      padding:20px;
+      margin-top:auto; 
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,.55) 25%,
+        rgba(255,255,255,.82) 100%
+      );
+    }
+
+    .card-head{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .card h3{
+      margin:0;
+      font-size:1.2rem;
+      font-weight:700;
+    }
+    .card p{
+      margin:10px 0 16px;
+      color:var(--text-muted);
+      line-height:1.6;
+      font-size:0.95rem;
+    }
     .card-link{
       color:var(--primary);
       font-weight:700;
       text-underline-offset:3px;
+      text-decoration:none;
+      transition:color 0.2s ease, padding-left 0.3s ease;
+      display:inline-block;
+    }
+    .card-link:hover{
+      color:#1f4029;
+      text-decoration:underline;
+      padding-left:4px;
     }
 
-    .home-contact{padding:36px 0}
+    /* CONTACT SECTION */
+    .home-contact{
+      padding:40px 0 20px;
+    }
     .home-contact-inner{
       border:1px solid var(--border);
       border-radius:var(--radius);
-      padding:18px;
-      background:var(--bg-alt);
-      box-shadow:0 10px 22px rgba(38,51,69,.06);
+      padding:32px;
+      background:linear-gradient(165deg, var(--bg-alt), #fff);
+      box-shadow:0 10px 24px rgba(38,51,69,.08);
+      text-align:center;
+      transition:box-shadow 0.3s ease;
     }
-    .home-contact-inner h2{margin:0 0 8px}
-    .home-contact-inner p{margin:0 0 14px; color:var(--text-muted)}
+    .home-contact-inner:hover{
+      box-shadow:0 14px 36px rgba(38,51,69,.12);
+    }
+    .home-contact-inner h2{
+      margin:0 0 12px;
+      font-size:1.75rem;
+      font-weight:700;
+    }
+    .home-contact-inner p{
+      margin:0 0 20px;
+      color:var(--text-muted);
+      font-size:1.05rem;
+    }
 
+    /* TABLET */
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-tiles{grid-template-columns:1fr 1fr}
-      .card-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .hero{
+        margin-bottom:44px;
+      }
+      .hero-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+      }
+      .hero-main{
+        min-height:400px;
+      }
+      .hero-tiles{
+        grid-template-columns:1fr 1fr;
+      }
+      .tile{
+        min-height:200px;
+      }
+      .card-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
     }
-    @media (max-width: 560px){
-      .hero-tiles{grid-template-columns:1fr}
-      .card-grid{grid-template-columns:1fr}
+
+    /* MOBILE */
+    @media (max-width: 640px){
+      .hero{
+        margin-bottom:36px;
+      }
+      .hero-grid{
+        gap:12px;
+      }
+      .hero-main{
+        min-height:320px;
+      }
+      .hero-overlay{
+        padding:20px;
+      }
+      .hero-overlay h1{
+        font-size:1.75rem;
+      }
+      .lead{
+        font-size:0.95rem;
+        margin-bottom:14px;
+      }
+      .cta-row{
+        gap:10px;
+      }
+      .btn{
+        padding:10px 16px;
+        font-size:0.9rem;
+      }
+      .hero-tiles{
+        grid-template-columns:1fr;
+      }
+      .tile{
+        min-height:180px;
+      }
+      .tile-img{
+        inset:10px;
+        width:calc(100% - 20px);
+        height:calc(100% - 20px);
+      }
+      .categories{
+        padding:16px 0 24px;
+      }
+      .categories h2{
+        font-size:1.6rem;
+        margin-bottom:16px;
+      }
+      .card-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .card-content{
+        padding:18px;
+      }
+      .home-contact{
+        padding:32px 0 16px;
+      }
+      .home-contact-inner{
+        padding:24px;
+      }
+      .home-contact-inner h2{
+        font-size:1.5rem;
+      }
+      .home-contact-inner p{
+        font-size:0.95rem;
+      }
     }
   </style>
 </BaseLayout>
