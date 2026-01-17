@@ -10,7 +10,7 @@ const {
   title = "Blair Sportsmen’s Club",
   description = "Blair Sportsmen’s Club — events, leagues, memberships, and The Barn event center.",
   canonicalPath = "/",
-  ogImage = "/og/facebook_og-image_horizontal.jpg",
+  ogImage = "/images/hero-main.jpg",
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
@@ -31,7 +31,7 @@ const orgJsonLd = {
   "@type": "SportsOrganization",
   name: "Blair Sportsmen’s Club",
   url: site || undefined,
-  logo: site ? `${site}/logo/bsc-logo.png` : "/logo/bsc-logo.png",
+  logo: site ? `${site}/images/hero-main.jpg` : "/images/hero-main.jpg",
 };
 ---
 
@@ -64,7 +64,7 @@ const orgJsonLd = {
       <div class="wrap header-inner">
         <a class="brand" href="/" aria-label="Blair Sportsmen’s Club home">
           <img
-            src="/logo/bsc-logo.png"
+            src="/images/BSC_Logo_FC_v2.jpg"
             width="180"
             height="56"
             alt="Blair Sportsmen’s Club"
