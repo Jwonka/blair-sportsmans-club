@@ -1,0 +1,234 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Blair Sportsmen’s Club | Events, Leagues, Memberships, and The Barn";
+const description =
+  "Blair Sportsmen’s Club in Blair, WI — shooting sports, hunting, waterfowl, leagues, memberships, and The Barn event center.";
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/" ogImage="/og/facebook_og-image_horizontal.jpg">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-main">
+        <img
+          src="/images/hero-main.jpg"
+          width="1400"
+          height="900"
+          alt="Blair Sportsmen’s Club grounds and facilities"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="hero-overlay">
+          <h1 id="hero-title">Blair Sportsmen’s Club</h1>
+          <p class="lead">
+            Events, leagues, memberships, and The Barn event center — built for outdoorsmen, shooters, and the community.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="/memberships">Join / Memberships</a>
+            <a class="btn ghost" href="/events">View Events</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-tiles" aria-label="Featured sections">
+        <a class="tile" href="/events">
+          <img src="/images/tile-1.jpg" width="700" height="520" alt="Upcoming club events" loading="lazy" decoding="async" />
+          <span class="tile-label">Events</span>
+        </a>
+        <a class="tile" href="/leagues">
+          <img src="/images/tile-2.jpg" width="700" height="520" alt="Trap and shooting leagues" loading="lazy" decoding="async" />
+          <span class="tile-label">Leagues</span>
+        </a>
+        <a class="tile" href="/memberships">
+          <img src="/images/tile-3.jpg" width="700" height="520" alt="Club memberships" loading="lazy" decoding="async" />
+          <span class="tile-label">Memberships</span>
+        </a>
+        <a class="tile" href="/event-center">
+          <img src="/images/tile-4.jpg" width="700" height="520" alt="The Barn event center" loading="lazy" decoding="async" />
+          <span class="tile-label">Event Center</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" aria-labelledby="categories-title">
+    <div class="wrap">
+      <h2 id="categories-title">Explore the Club</h2>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-head">
+            <span class="icon" aria-hidden="true">🦆</span>
+            <h3>Waterfowl</h3>
+          </div>
+          <p>Seasonal information, access details, and club highlights for duck and waterfowl activities.</p>
+          <a class="card-link" href="/waterfowl">Learn more<span class="sr-only"> about Waterfowl</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <span class="icon" aria-hidden="true">🎯</span>
+            <h3>Shooting Sports</h3>
+          </div>
+          <p>Trap and related shooting sports, league nights, schedules, and participation details.</p>
+          <a class="card-link" href="/shooting-sports">Learn more<span class="sr-only"> about Shooting Sports</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <span class="icon" aria-hidden="true">🦌</span>
+            <h3>Hunting</h3>
+          </div>
+          <p>Big game information and club resources focused on safety, etiquette, and community stewardship.</p>
+          <a class="card-link" href="/hunting">Learn more<span class="sr-only"> about Hunting</span></a>
+        </article>
+
+        <article class="card">
+          <div class="card-head">
+            <span class="icon" aria-hidden="true">🏟️</span>
+            <h3>The Barn</h3>
+          </div>
+          <p>Event center details, photos, rental information, and inquiry/booking workflow.</p>
+          <a class="card-link" href="/event-center">Learn more<span class="sr-only"> about The Barn</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-contact" aria-labelledby="home-contact-title">
+    <div class="wrap home-contact-inner">
+      <h2 id="home-contact-title">Questions or booking requests?</h2>
+      <p>Use the contact page for hours, directions, and the fastest way to reach the club.</p>
+      <a class="btn primary" href="/contact">Contact Us</a>
+    </div>
+  </section>
+
+  <style>
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    .hero{padding:18px 0 0}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .hero-main{
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:360px;
+      background:var(--bg-alt);
+    }
+    .hero-main img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:saturate(105%);
+    }
+    .hero-overlay{
+      position:absolute; inset:0;
+      display:flex; flex-direction:column; justify-content:flex-end;
+      padding:22px;
+      background:linear-gradient(180deg, rgba(38,51,69,0) 25%, rgba(38,51,69,.72) 100%);
+      color:#fff;
+    }
+    .hero-overlay h1{margin:0 0 8px; font-size:clamp(1.8rem, 3vw, 2.6rem); line-height:1.1}
+    .lead{margin:0 0 14px; max-width:62ch; color:rgba(255,255,255,.9)}
+
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.35);
+      font-weight:600;
+    }
+    .btn.primary{background:var(--primary); border-color:transparent; color:#fff}
+    .btn.ghost{background:rgba(255,255,255,.12); color:#fff}
+
+    .hero-tiles{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .tile{
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:var(--bg-alt);
+      text-decoration:none;
+      min-height:160px;
+    }
+    .tile img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .tile::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(38,51,69,0) 35%, rgba(38,51,69,.55) 100%);
+    }
+    .tile-label{
+      position:absolute; left:12px; bottom:10px;
+      z-index:1;
+      color:#fff;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+
+    .categories{padding:32px 0 0}
+    .categories h2{margin:0 0 14px; font-size:1.6rem}
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px;
+      background:linear-gradient(180deg, rgba(159,154,117,.14), rgba(255,255,255,1));
+      box-shadow:0 10px 22px rgba(38,51,69,.06);
+    }
+    .card-head{display:flex; align-items:center; gap:10px}
+    .icon{font-size:1.3rem}
+    .card h3{margin:0; font-size:1.1rem}
+    .card p{margin:10px 0 12px; color:var(--text-muted)}
+    .card-link{
+      color:var(--primary);
+      font-weight:700;
+      text-underline-offset:3px;
+    }
+
+    .home-contact{padding:36px 0}
+    .home-contact-inner{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:18px;
+      background:var(--bg-alt);
+      box-shadow:0 10px 22px rgba(38,51,69,.06);
+    }
+    .home-contact-inner h2{margin:0 0 8px}
+    .home-contact-inner p{margin:0 0 14px; color:var(--text-muted)}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-tiles{grid-template-columns:1fr 1fr}
+      .card-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+    }
+    @media (max-width: 560px){
+      .hero-tiles{grid-template-columns:1fr}
+      .card-grid{grid-template-columns:1fr}
+    }
+  </style>
+</BaseLayout>
