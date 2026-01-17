@@ -1,0 +1,193 @@
+---
+type Props = {
+  title?: string;
+  description?: string;
+  canonicalPath?: string; // e.g. "/events"
+  ogImage?: string;       // e.g. "/og/facebook_og-image_horizontal.jpg"
+};
+
+const {
+  title = "Blair Sportsmen’s Club",
+  description = "Blair Sportsmen’s Club — events, leagues, memberships, and The Barn event center.",
+  canonicalPath = "/",
+  ogImage = "/og/facebook_og-image_horizontal.jpg",
+} = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, "") ?? "";
+const canonical = site ? `${site}${canonicalPath}` : canonicalPath;
+const year = new Date().getFullYear();
+
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/contact", label: "Contact Us" },
+  { href: "/events", label: "Events" },
+  { href: "/leagues", label: "Leagues" },
+  { href: "/memberships", label: "Memberships" },
+  { href: "/event-center", label: "Event Center" },
+];
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsOrganization",
+  name: "Blair Sportsmen’s Club",
+  url: site || undefined,
+  logo: site ? `${site}/logo/bsc-logo.png` : "/logo/bsc-logo.png",
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site ? `${site}${ogImage}` : ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#2C583D" />
+
+    <script type="application/ld+json">{JSON.stringify(orgJsonLd)}</script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="/" aria-label="Blair Sportsmen’s Club home">
+          <img
+            src="/logo/bsc-logo.png"
+            width="180"
+            height="56"
+            alt="Blair Sportsmen’s Club"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <ul class="nav-list">
+            {nav.map((i) => (
+              <li class="nav-item">
+                <a class="nav-link" href={i.href}>{i.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p class="fineprint">© {year} Blair Sportsmen’s Club. All rights reserved.</p>
+        <p class="fineprint">
+          <a href="/contact">Contact</a>
+          <span aria-hidden="true"> · </span>
+          <a href="/memberships">Memberships</a>
+          <span aria-hidden="true"> · </span>
+          <a href="/event-center">Event Center</a>
+        </p>
+      </div>
+    </footer>
+
+    <style>
+      :root{
+        --bg:#FFFFFF;
+        --bg-alt:#F3F3F3;
+        --primary:#2C583D;
+        --secondary:#9F9A75;
+        --accent:#A63C3C;
+        --text:#263345;
+        --text-muted:#414141;
+        --border:rgba(38,51,69,.18);
+        --focus:#84A5CC;
+
+        --radius:14px;
+        --shadow:0 10px 30px rgba(38,51,69,.10);
+        --max:1120px;
+      }
+
+      *{box-sizing:border-box}
+      html:focus-within{scroll-behavior:smooth}
+      @media (prefers-reduced-motion: reduce){
+        html:focus-within{scroll-behavior:auto}
+        *{animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important}
+      }
+
+      body{
+        margin:0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color:var(--text);
+        background:var(--bg);
+        line-height:1.5;
+        text-rendering:optimizeLegibility;
+      }
+
+      a{color:inherit}
+      a:focus-visible, button:focus-visible{
+        outline:3px solid var(--focus);
+        outline-offset:3px;
+        border-radius:10px;
+      }
+
+      .wrap{max-width:var(--max); margin:0 auto; padding:0 16px}
+      .skip-link{
+        position:absolute; left:12px; top:12px;
+        padding:10px 12px;
+        background:var(--bg);
+        border:1px solid var(--border);
+        border-radius:10px;
+        transform:translateY(-200%);
+      }
+      .skip-link:focus{transform:translateY(0)}
+
+      .site-header{
+        position:sticky; top:0; z-index:20;
+        background:rgba(255,255,255,.92);
+        backdrop-filter:saturate(160%) blur(10px);
+        border-bottom:1px solid var(--border);
+      }
+      .header-inner{
+        display:flex; align-items:center; justify-content:space-between;
+        padding:10px 0;
+        gap:16px;
+      }
+      .brand{display:inline-flex; align-items:center; text-decoration:none}
+      .brand img{display:block; height:auto}
+
+      .nav-list{
+        display:flex; flex-wrap:wrap; gap:10px;
+        list-style:none; margin:0; padding:0;
+      }
+      .nav-link{
+        display:inline-block;
+        padding:10px 12px;
+        text-decoration:none;
+        border-radius:12px;
+      }
+      .nav-link:hover{background:rgba(44,88,61,.08)}
+      .site-main{min-height:60vh}
+
+      .site-footer{
+        margin-top:48px;
+        background:var(--text);
+        color:var(--bg);
+      }
+      .footer-inner{padding:28px 0}
+      .fineprint{margin:6px 0; color:rgba(255,255,255,.86)}
+      .fineprint a{color:inherit}
+    </style>
+  </body>
+</html>
